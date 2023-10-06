@@ -1,9 +1,16 @@
-insert into pessoas values
-/*(id, nome, nascimento, sexo, peso, altura, nacionalidade) pode ir entre o nome da tabela e o "values", mas se a disposição dos dados for igual à disposição na tabela, 
-esse item é opcional*/
+create database cadastro
+default character set utf8mb4
+default collate utf8mb4_general_ci;
 
-(default, 'Cláudio', '1975-4-22', 'M', '99.0', '2.15', 'Brasil'),
-(default, 'Pedro', '1999-12-3', 'M', '87', '2', default),
-(default, 'Janaína', '1987-11-12', 'F', '75.4', '1.66', 'EUA');
+create table pessoas(
 
-select * from pessoas;
+id int not null auto_increment,
+nome varchar(30) not null,
+nascimento date,
+sexo enum ('M', 'F'),
+peso decimal (5,2),
+altura decimal (3,2), 
+nacionalidade varchar (20) default 'Brasil',
+primary key (id)
+
+) default charset = utf8mb4;
